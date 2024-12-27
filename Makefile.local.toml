@@ -1,0 +1,54 @@
+[tasks.cargo-test]
+category = "LOCAL USAGE"
+command = "cargo"
+args = ["test", "--workspace", "--no-fail-fast"]
+
+[tasks.cargo-fmt]
+category = "LOCAL USAGE"
+command = "cargo"
+args = ["fmt", "--all"]
+
+[tasks.cargo-check]
+category = "LOCAL USAGE"
+command = "cargo"
+env = { RUSTFLAGS = "--cfg surrealdb_unstable" }
+args = ["check", "--workspace"]
+
+[tasks.cargo-clippy]
+category = "LOCAL USAGE"
+command = "cargo"
+env = { RUSTFLAGS = "--cfg surrealdb_unstable" }
+args = ["clippy", "--", "-D", "warnings"]
+
+
+[tasks.cargo-doc]
+category = "LOCAL USAGE"
+command = "cargo"
+args = ["doc", "--open", "--no-deps", "--all", "--target-dir", "./doc"]
+
+[tasks.clean-doc]
+category = "LOCAL USAGE"
+command = "rm"
+args = ["-rf", "./doc/debug", "./doc/.rustc_info.json", "./doc/.rustdoc_fingerprint.json"]
+
+[tasks.cargo-clean]
+category = "LOCAL USAGE"
+command = "cargo"
+args = ["clean"]
+
+[tasks.test]
+category = "LOCAL USAGE"
+dependencies = ["cargo-test"]
+
+[tasks.check]
+category = "LOCAL USAGE"
+dependencies = ["cargo-check", "cargo-clippy"]
+
+[tasks.clean]
+category = "LOCAL USAGE"
+dependencies = ["cargo-clean", "clean-doc"]
+
+[tasks.default]
+category = "LOCAL USAGE"
+clear = true
+dependencies = ["cargo-fmt", "check", "test"]

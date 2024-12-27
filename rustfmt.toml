@@ -1,0 +1,8 @@
+# Run rustfmt with this config (it should be picked up automatically).
+use_small_heuristics = "Max"
+merge_derives = false
+use_field_init_shorthand = true
+
+hard_tabs = true
+reorder_imports = true
+reorder_modules = true
