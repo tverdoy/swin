@@ -1,0 +1,26 @@
+[tasks.ci-cargo-test]
+category = "CI USAGE"
+command = "cargo"
+args = ["test", "--workspace"]
+
+[tasks.ci-cargo-fmt]
+category = "CI USAGE"
+command = "cargo"
+args = ["fmt", "--all", "--", "--check"]
+
+[tasks.ci-cargo-check]
+category = "CI USAGE"
+command = "cargo"
+env = { RUSTFLAGS = "--cfg surrealdb_unstable" }
+args = ["check", "--workspace"]
+
+[tasks.ci-cargo-clippy]
+category = "CI USAGE"
+command = "cargo"
+env = { RUSTFLAGS = "--cfg surrealdb_unstable" }
+args = ["clippy", "--", "-D", "warnings"]
+
+[tasks.ci]
+category = "CI USAGE"
+clear = true
+dependencies = ["ci-cargo-fmt", "ci-cargo-check", "ci-cargo-clippy", "ci-cargo-test"]
