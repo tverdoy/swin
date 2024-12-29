@@ -11,7 +11,7 @@ reduce_output = true
 default_to_workspace = false
 
 [env]
-ROO_CONTRACT_ID = { value = "devswin.testnet", condition = { env_not_set = ["ROOT_CONTRACT_ID"] } }
+ROOT_CONTRACT_ID = { value = "devswin.testnet", condition = { env_not_set = ["ROOT_CONTRACT_ID"] } }
 CONTRACT_ID = { value = "v2.devswin.testnet", condition = { env_not_set = ["CONTRACT_ID"] } }
 
 
