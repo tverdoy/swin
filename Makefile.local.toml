@@ -36,6 +36,15 @@ category = "LOCAL USAGE"
 command = "cargo"
 args = ["clean"]
 
+[tasks.build-contract]
+category = "LOCAL USAGE"
+cwd = "./contract"
+command = "cargo"
+args = ["near", "build", "--no-docker"]
+
+[tasks.bc]
+alias = "build-contract"
+
 [tasks.test]
 category = "LOCAL USAGE"
 dependencies = ["cargo-test"]

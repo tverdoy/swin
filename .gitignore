@@ -1,0 +1,12 @@
+debug/
+target/
+target-*/
+./target
+
+.vscode
+/.idea
+
+.DS_Store
+
+doc/debug
+doc/.*
