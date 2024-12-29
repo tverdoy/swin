@@ -48,7 +48,7 @@ alias = "build-contract"
 [tasks.deploy-contract]
 category = "LOCAL USAGE"
 cwd = "./contract"
-script = "cargo near deploy $CONTRACT_ID with-init-call new_default_meta json-args '{\"owner_id\": \"'$CONTRACT_ID'\", \"total_supply\": \"0\"}' prepaid-gas '100.0 Tgas' attached-deposit '0 NEAR' network-config testnet sign-with-keychain send"
+script = "cargo near deploy $CONTRACT_ID with-init-call new_default_meta json-args '{\"owner_id\": \"'$ROOT_CONTRACT_ID'\", \"total_supply\": \"1000000000000000000000000000\"}' prepaid-gas '100.0 Tgas' attached-deposit '0 NEAR' network-config testnet sign-with-keychain send"
 
 [tasks.dc]
 alias = "deploy-contract"
@@ -56,7 +56,7 @@ alias = "deploy-contract"
 [tasks.create-account]
 category = "LOCAL USAGE"
 cwd = "./contract"
-script = "near account create-account fund-myself $CONTRACT_ID '3 NEAR' autogenerate-new-keypair save-to-keychain sign-as $FT_CONTRACT_ID network-config testnet sign-with-keychain send"
+script = "near account create-account fund-myself $CONTRACT_ID '3 NEAR' autogenerate-new-keypair save-to-keychain sign-as $ROOT_CONTRACT_ID network-config testnet sign-with-keychain send"
 
 [tasks.test]
 category = "LOCAL USAGE"

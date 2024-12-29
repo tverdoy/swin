@@ -1,3 +1,8 @@
 [tasks.view-metadata]
 category = "LOCAL USAGE"
-script = "near view $FT_CONTRACT_ID ft_metadata '{}' --networkId testnet"
+script = "near view $CONTRACT_ID ft_metadata '{}' --networkId testnet"
+
+[tasks.view-ft-total]
+category = "LOCAL USAGE"
+script = "near contract call-function as-read-only $CONTRACT_ID ft_total_supply json-args {} network-config testnet now"
+
