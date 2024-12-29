@@ -40,7 +40,7 @@ args = ["clean"]
 category = "LOCAL USAGE"
 cwd = "./contract"
 command = "cargo"
-args = ["near", "build", "--no-docker"]
+args = ["near", "build"]
 
 [tasks.bc]
 alias = "build-contract"
@@ -51,7 +51,7 @@ cwd = "./contract"
 script = "cargo near deploy $FT_CONTRACT_ID with-init-call new_default_meta json-args '{\"owner_id\": \"'$FT_CONTRACT_ID'\", \"total_supply\": \"0\"}' prepaid-gas '100.0 Tgas' attached-deposit '0 NEAR' network-config testnet sign-with-keychain send"
 
 [tasks.dc]
-alias = "dc"
+alias = "deploy-contract"
 
 [tasks.test]
 category = "LOCAL USAGE"
