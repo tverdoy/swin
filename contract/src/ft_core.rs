@@ -52,11 +52,11 @@ impl FungibleTokenCore for Contract {
     }
 
     fn ft_total_supply(&self) -> U128 {
-        todo!()
+        U128(self.total_supply.as_yoctonear())
     }
 
     fn ft_balance_of(&self, account_id: AccountId) -> NearToken {
-        todo!()
+        self.accounts.get(&account_id).unwrap_or(&ZERO_TOKEN).clone()
     }
 
     fn ft_on_transfer(&mut self, sender_id: AccountId, amount: NearToken, msg: String) -> PromiseOrValue<NearToken> {

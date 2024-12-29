@@ -1,6 +1,7 @@
 extend = [
     { path = "Makefile.local.toml" },
     { path = "Makefile.ci.toml" },
+    { path = "Makefile.contract.toml" },
 ]
 
 [config]
@@ -8,6 +9,10 @@ skip_core_tasks = true
 time_summary = true
 reduce_output = true
 default_to_workspace = false
+
+[env]
+FT_CONTRACT_ID = { value = "devswin.testnet", condition = { env_not_set = ["FT_CONTRACT_ID"] } }
+
 
 [tasks.empty]
 disabled = true

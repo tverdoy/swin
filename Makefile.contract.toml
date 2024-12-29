@@ -1,0 +1,3 @@
+[tasks.view-metadata]
+category = "LOCAL USAGE"
+script = "near view $FT_CONTRACT_ID ft_metadata '{}' --networkId testnet"

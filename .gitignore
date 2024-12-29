@@ -1,7 +1,6 @@
 debug/
 target/
 target-*/
-./target
 
 .vscode
 /.idea
